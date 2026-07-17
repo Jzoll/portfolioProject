@@ -1,0 +1,896 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jessica Zoll — Software Developer</title>
+    <meta
+      name="description"
+      content="Portfolio and resume for Jessica Zoll, software developer transitioning from diagnostic medical sonography."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #print-resume,
+        #print-resume * {
+          visibility: visible;
+        }
+        #print-resume {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          display: block !important;
+        }
+      }
+      #resume-modal {
+        width: min(720px, 92vw);
+        max-height: 88vh;
+        padding: var(--space-4);
+        border: none;
+        border-radius: calc(var(--radius-lg) * 1.15);
+        background: var(--color-surface);
+        box-shadow: var(--shadow-lg);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      #resume-modal[open] {
+        display: flex;
+      }
+      #resume-modal::backdrop {
+        background: color-mix(in srgb, #2e2b25 55%, transparent);
+        backdrop-filter: blur(3px);
+      }
+      .resume-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: var(--space-3);
+        border-bottom: 1px solid var(--color-divider);
+        flex: none;
+        margin-bottom: var(--space-4);
+      }
+      .resume-modal-scroll {
+        overflow-y: auto;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <span class="nav-brand">jzoll.dev</span>
+      <a
+        class="btn btn-secondary"
+        href="https://www.linkedin.com/in/jessica-zoll-705a6627a/"
+        target="_blank"
+        rel="noopener"
+        >LinkedIn</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="https://github.com/Jzoll"
+        target="_blank"
+        rel="noopener"
+        >GitHub</a
+      >
+      <a
+        class="btn btn-secondary"
+        href="mailto:jzoll.dev@gmail.com?subject=Copy%20of%20your%20resume&body=Hi%20Jessica%2C%20could%20you%20send%20over%20a%20copy%20of%20your%20resume%3F"
+        >Email me a copy</a
+      >
+      <button class="btn btn-secondary view-resume-trigger">View resume</button>
+      <button class="btn btn-primary" id="print-btn">Print resume</button>
+    </div>
+
+    <main style="max-width: 1040px; margin: 0 auto; padding: 0 var(--space-4)">
+      <section
+        style="padding: var(--space-8) 0 var(--space-6); max-width: 640px"
+      >
+        <div class="card-kicker">SOFTWARE DEVELOPER</div>
+        <h1>Jessica Zoll</h1>
+        <p style="font-size: 18px; line-height: 1.6">
+          CIS grad, summa cum laude, pivoting from five years in diagnostic
+          imaging to software development.
+        </p>
+        <p class="text-muted" style="font-size: 14px">
+          Building a monorepo of five apps, in public —
+          <a href="#projects">see below</a>.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2)">
+          <a
+            class="btn btn-secondary"
+            href="https://www.linkedin.com/in/jessica-zoll-705a6627a/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+          <a
+            class="btn btn-secondary"
+            href="https://github.com/Jzoll"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <button class="btn btn-primary view-resume-trigger">
+            View resume
+          </button>
+          <button class="btn btn-secondary print-trigger">Print resume</button>
+        </div>
+      </section>
+
+      <div class="hr"></div>
+
+      <section style="padding: var(--space-8) 0; max-width: 640px">
+        <div class="card-kicker" style="color: var(--color-accent-2-800)">
+          WHY THE SWITCH
+        </div>
+        <h2>Diagnostics to code</h2>
+        <p style="font-size: 16px; line-height: 1.75">
+          Five years in diagnostic imaging taught me to work inside tight
+          protocols, where a missed step has real consequences: read the case
+          correctly, document it precisely, escalate what doesn't fit the
+          pattern. That discipline transferred directly — the same instinct for
+          correctness now shows up in how I test, review, and reason about code
+          before it ships.
+        </p>
+        <p
+          class="text-muted"
+          style="font-size: 16px; line-height: 1.75; margin: 0"
+        >
+          I build with AI tools throughout — they're part of how I write and
+          debug day to day. What matters more is that I understand every
+          architectural decision in this monorepo and can defend it, line by
+          line, in an interview or a code review.
+        </p>
+      </section>
+
+      <div class="hr"></div>
+
+      <section id="projects" style="padding: var(--space-8) 0">
+        <div class="card-kicker">THE MONOREPO</div>
+        <h2 style="margin: 0 0 var(--space-6)">Five apps, build order</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-4);
+          "
+        >
+          <div class="card elev-sm">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: var(--space-2);
+              "
+            >
+              <span class="card-title">Shared Auth</span>
+              <span class="tag tag-neutral">PLANNED</span>
+            </div>
+            <p class="card-body">
+              Central authentication service issuing JWTs that every other app
+              validates before serving requests.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span class="tag tag-neutral">Node.js</span>
+              <span class="tag tag-neutral">JWT</span>
+              <span class="tag tag-neutral">PM2</span>
+            </div>
+            <div class="card-meta" style="color: var(--color-accent-2-800)">
+              <span
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: var(--color-accent-2-600);
+                  display: inline-block;
+                  flex: none;
+                "
+              ></span
+              >Core logic hand-written (token rotation &amp; auth flow) ·
+              scaffolding AI-assisted
+            </div>
+          </div>
+
+          <div class="card elev-sm">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: var(--space-2);
+              "
+            >
+              <span class="card-title">Time Tracker</span>
+              <span class="tag tag-accent">IN PROGRESS</span>
+            </div>
+            <p class="card-body">
+              Session-based time tracking SPA with a JWT access/refresh auth
+              layer, served as static assets off EC2.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span class="tag tag-neutral">React 19</span>
+              <span class="tag tag-neutral">TypeScript</span>
+              <span class="tag tag-neutral">Zustand</span>
+              <span class="tag tag-neutral">TypeORM</span>
+              <span class="tag tag-neutral">PostgreSQL</span>
+            </div>
+            <div class="card-meta" style="color: var(--color-accent-2-800)">
+              <span
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: var(--color-accent-2-600);
+                  display: inline-block;
+                  flex: none;
+                "
+              ></span
+              >Scaffolded · non-trivial logic hand-written
+            </div>
+          </div>
+
+          <div class="card elev-sm">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: var(--space-2);
+              "
+            >
+              <span class="card-title">Leet Tracker</span>
+              <span class="tag tag-accent">IN PROGRESS</span>
+            </div>
+            <p class="card-body">
+              Full-stack LeetCode progress tracker with a unit-tested FSRS
+              spaced-repetition scheduler.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span class="tag tag-neutral">Blazor Server</span>
+              <span class="tag tag-neutral">ASP.NET Core</span>
+              <span class="tag tag-neutral">SQLite</span>
+            </div>
+            <div class="card-meta" style="color: var(--color-accent-2-800)">
+              <span
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: var(--color-accent-2-600);
+                  display: inline-block;
+                  flex: none;
+                "
+              ></span
+              >Core logic hand-written (FSRS scheduling algorithm, unit-tested)
+              · scaffolding AI-assisted
+            </div>
+          </div>
+
+          <div class="card elev-sm">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: var(--space-2);
+              "
+            >
+              <span class="card-title">Pigeon Project</span>
+              <span class="tag tag-neutral">PLANNED</span>
+            </div>
+            <p class="card-body">
+              Snail-mail concept app — send and track physical letters by
+              recipient, sent date, and status.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span class="tag tag-neutral">Node.js</span>
+              <span class="tag tag-neutral">REST</span>
+              <span class="tag tag-neutral">Shared-Auth client</span>
+            </div>
+            <div class="card-meta" style="color: var(--color-accent-2-800)">
+              <span
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: var(--color-accent-2-600);
+                  display: inline-block;
+                  flex: none;
+                "
+              ></span
+              >Scaffolded · higher AI delegation overall
+            </div>
+          </div>
+
+          <div class="card elev-sm">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: var(--space-2);
+              "
+            >
+              <span class="card-title">Nudge</span>
+              <span class="tag tag-neutral">PLANNED</span>
+            </div>
+            <p class="card-body">
+              AI accountability app — set goals, get nudged, and log check-ins
+              against a defined frequency.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span class="tag tag-neutral">Node.js</span>
+              <span class="tag tag-neutral">REST</span>
+              <span class="tag tag-neutral">Shared-Auth client</span>
+              <span class="tag tag-neutral">LLM API</span>
+            </div>
+            <div class="card-meta" style="color: var(--color-accent-2-800)">
+              <span
+                style="
+                  width: 6px;
+                  height: 6px;
+                  border-radius: 50%;
+                  background: var(--color-accent-2-600);
+                  display: inline-block;
+                  flex: none;
+                "
+              ></span
+              >Core logic hand-written (nudge accountability mechanic) ·
+              AI-assisted scaffolding &amp; prompt iteration
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="hr"></div>
+
+      <section style="padding: var(--space-6) 0">
+        <div class="card-kicker" style="color: var(--color-neutral-700)">
+          INFRASTRUCTURE
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2)">
+          <span class="tag tag-outline">AWS EC2</span>
+          <span class="tag tag-outline">nginx — subdomain routing</span>
+          <span class="tag tag-outline">PM2</span>
+          <span class="tag tag-outline">Cloudflare</span>
+        </div>
+      </section>
+
+      <div class="hr"></div>
+
+      <footer
+        style="
+          padding: var(--space-6) 0 var(--space-8);
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-4);
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap">
+          <a class="text-muted" href="mailto:jzoll.dev@gmail.com"
+            >jzoll.dev@gmail.com</a
+          >
+          <a
+            class="text-muted"
+            href="https://github.com/Jzoll"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a
+            class="text-muted"
+            href="https://www.linkedin.com/in/jessica-zoll-705a6627a/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </div>
+        <div class="text-muted" style="font-size: 13px">
+          &copy; <span id="year"></span> Jessica Zoll
+        </div>
+      </footer>
+    </main>
+
+    <!-- Print-only resume — hidden on screen, shown via @media print above -->
+    <div
+      id="print-resume"
+      style="
+        display: none;
+        font-family: var(--font-body);
+        color: #201e1d;
+        padding: 48px;
+        max-width: 720px;
+        background: #fff;
+      "
+    >
+      <h1
+        style="
+          font-family: var(--font-heading);
+          margin: 0 0 4px;
+          font-size: 28px;
+        "
+      >
+        Jessica Zoll
+      </h1>
+      <div style="font-size: 14px; color: #444; margin-bottom: 2px">
+        Software Developer · Healthcare Career Transitioner
+      </div>
+      <div style="font-size: 13px; color: #666; margin-bottom: 20px">
+        jzoll.dev@gmail.com · github.com/Jzoll · West Texas A&amp;M University
+      </div>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+        "
+      >
+        Profile
+      </h2>
+      <p style="font-size: 14px; line-height: 1.6">
+        Software developer transitioning from 5 years in diagnostic medical
+        sonography. Graduated Summa Cum Laude (GPA 3.95) with a BBA in Computer
+        Information Systems from West Texas A&amp;M University. Brings a rare
+        cross-disciplinary perspective — clinical precision, patient-facing
+        communication, and a drive to build tools that actually matter.
+        Self-directed learner currently deepening expertise in cloud deployment,
+        AI-assisted development, and full-stack .NET and React ecosystems.
+      </p>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+          margin-top: 20px;
+        "
+      >
+        Technical Skills
+      </h2>
+      <p style="font-size: 13px; line-height: 1.7">
+        C#, ASP.NET Core Web API &amp; Razor Pages, EF Core, ASP.NET Core
+        Identity · React 19, TypeScript, Vite, Tailwind CSS, Zustand · Blazor
+        Server, SignalR, MudBlazor · SQL, SQLite, MongoDB, EF Core migrations ·
+        Node.js, Express.js, JavaScript, HTML/CSS · Docker, unit testing (xUnit,
+        Moq), CI/CD pipelines, GitHub Actions · EC2 deployment, Nginx reverse
+        proxy, PM2, systemd · Kotlin, Android Studio, Jetpack Compose ·
+        AI-assisted development (Claude, Copilot, prompt engineering) ·
+        Git/GitHub Flow, UML/ER diagramming (draw.io), Agile/SCRUM methodology
+      </p>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+          margin-top: 20px;
+        "
+      >
+        Projects
+      </h2>
+      <p
+        style="
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0 0 2px;
+          font-weight: 600;
+        "
+      >
+        LeetTracker | jzoll.dev/leettracker — 2025 to Present
+      </p>
+      <p
+        style="font-size: 13px; line-height: 1.6; margin: 0 0 12px; color: #333"
+      >
+        Full-stack LeetCode progress tracker. Blazor Server frontend + ASP.NET
+        Core Web API backend + SQLite, implementing a unit-tested FSRS
+        spaced-repetition scheduling algorithm. Deployed on AWS EC2 behind Nginx
+        with PM2 process management.
+      </p>
+      <p
+        style="
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0 0 2px;
+          font-weight: 600;
+        "
+      >
+        Time Tracker | jzoll.dev/timetracker — 2025 to Present
+      </p>
+      <p style="font-size: 13px; line-height: 1.6; margin: 0; color: #333">
+        React 19 + Vite SPA for session-based time tracking. TypeScript,
+        Tailwind CSS, Zustand state management, TypeORM + PostgreSQL data layer
+        with JWT access/refresh authentication. Served as static assets via EC2.
+      </p>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+          margin-top: 20px;
+        "
+      >
+        Independent Learning &amp; AI Experimentation
+      </h2>
+      <p style="font-size: 13px; line-height: 1.7">
+        Active use of AI coding assistants (Claude, GitHub Copilot) — prompt
+        engineering, context management, iterative code review · Spec-driven
+        development workflow (GitHub Spec Kit) across personal projects ·
+        Self-directed study of software architecture and SOLID design principles
+        · Ongoing Data Structures &amp; Algorithms practice (two pointers,
+        sliding window, prefix sums) on LeetCode
+      </p>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+          margin-top: 20px;
+        "
+      >
+        Education
+      </h2>
+      <p
+        style="
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0 0 2px;
+          font-weight: 600;
+        "
+      >
+        BBA, Computer Information Systems — West Texas A&amp;M University,
+        December 2024
+      </p>
+      <p style="font-size: 13px; line-height: 1.6; margin: 0">
+        Summa Cum Laude · GPA 3.95/4.0. Capstone: TeamOahu Captive Portal —
+        ASP.NET Core MVC + EF Core + Identity, containerized with Docker, unit
+        tested with xUnit/Moq, delivered via Scrum sprints while owning teammate
+        PR reviews.
+      </p>
+      <p
+        style="font-size: 12px; line-height: 1.6; margin: 6px 0 0; color: #555"
+      >
+        Relevant coursework: OO Analysis &amp; Design · Advanced Business
+        Programming · Back-End Web Dev · Mobile App Development (Kotlin/Jetpack
+        Compose) · Database Design · Software Systems Development · Data Mining
+        Methods (RapidMiner, R)
+      </p>
+
+      <h2
+        style="
+          font-size: 15px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 4px;
+          margin-top: 20px;
+        "
+      >
+        Healthcare Background
+      </h2>
+      <p style="font-size: 14px; line-height: 1.6">
+        ~5 years as a Registered Diagnostic Medical Sonographer. Developed deep
+        expertise in technical precision, real-time clinical decision-making,
+        and communicating complex information to non-technical stakeholders.
+        This background informs a human-centered approach to software:
+        performance matters, clarity matters, and the end user's experience is
+        never an afterthought.
+      </p>
+    </div>
+
+    <dialog id="resume-modal" aria-label="Resume preview">
+      <div class="resume-modal-header">
+        <span
+          style="
+            font-family: var(--font-heading);
+            font-size: 20px;
+            line-height: 1.2;
+          "
+          >Resume — Jessica Zoll</span
+        >
+        <button
+          class="btn btn-ghost btn-icon"
+          id="resume-modal-close"
+          aria-label="Close"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M13 3L3 13M3 3L13 13"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="resume-modal-scroll">
+        <div
+          style="
+            font-family: var(--font-body);
+            padding: 0 var(--space-2) var(--space-6);
+          "
+        >
+          <h1
+            style="
+              font-family: var(--font-heading);
+              margin: 0 0 4px;
+              font-size: 28px;
+            "
+          >
+            Jessica Zoll
+          </h1>
+          <div
+            style="
+              font-size: 14px;
+              color: var(--color-neutral-700);
+              margin-bottom: 2px;
+            "
+          >
+            Software Developer · Healthcare Career Transitioner
+          </div>
+          <div
+            style="
+              font-size: 13px;
+              color: var(--color-neutral-600);
+              margin-bottom: var(--space-6);
+            "
+          >
+            jzoll.dev@gmail.com · github.com/Jzoll · West Texas A&amp;M
+            University
+          </div>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Profile
+          </h2>
+          <p
+            style="
+              font-size: 14px;
+              line-height: 1.6;
+              margin: var(--space-2) 0 var(--space-4);
+            "
+          >
+            Software developer transitioning from 5 years in diagnostic medical
+            sonography. Graduated Summa Cum Laude (GPA 3.95) with a BBA in
+            Computer Information Systems from West Texas A&amp;M University.
+            Brings a rare cross-disciplinary perspective — clinical precision,
+            patient-facing communication, and a drive to build tools that
+            actually matter. Self-directed learner currently deepening expertise
+            in cloud deployment, AI-assisted development, and full-stack .NET
+            and React ecosystems.
+          </p>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Technical Skills
+          </h2>
+          <p
+            style="
+              font-size: 13px;
+              line-height: 1.7;
+              margin: var(--space-2) 0 var(--space-4);
+            "
+          >
+            C#, ASP.NET Core Web API &amp; Razor Pages, EF Core, ASP.NET Core
+            Identity · React 19, TypeScript, Vite, Tailwind CSS, Zustand ·
+            Blazor Server, SignalR, MudBlazor · SQL, SQLite, MongoDB, EF Core
+            migrations · Node.js, Express.js, JavaScript, HTML/CSS · Docker,
+            unit testing (xUnit, Moq), CI/CD pipelines, GitHub Actions · EC2
+            deployment, Nginx reverse proxy, PM2, systemd · Kotlin, Android
+            Studio, Jetpack Compose · AI-assisted development (Claude, Copilot,
+            prompt engineering) · Git/GitHub Flow, UML/ER diagramming (draw.io),
+            Agile/SCRUM methodology
+          </p>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Projects
+          </h2>
+          <p
+            style="
+              font-size: 14px;
+              line-height: 1.6;
+              margin: var(--space-2) 0 2px;
+              font-weight: 600;
+            "
+          >
+            LeetTracker | jzoll.dev/leettracker — 2025 to Present
+          </p>
+          <p
+            style="
+              font-size: 13px;
+              line-height: 1.6;
+              margin: 0 0 var(--space-3);
+              color: var(--color-neutral-800);
+            "
+          >
+            Full-stack LeetCode progress tracker. Blazor Server frontend +
+            ASP.NET Core Web API backend + SQLite, implementing a unit-tested
+            FSRS spaced-repetition scheduling algorithm. Deployed on AWS EC2
+            behind Nginx with PM2 process management.
+          </p>
+          <p
+            style="
+              font-size: 14px;
+              line-height: 1.6;
+              margin: 0 0 2px;
+              font-weight: 600;
+            "
+          >
+            Time Tracker | jzoll.dev/timetracker — 2025 to Present
+          </p>
+          <p
+            style="
+              font-size: 13px;
+              line-height: 1.6;
+              margin: 0 0 var(--space-4);
+              color: var(--color-neutral-800);
+            "
+          >
+            React 19 + Vite SPA for session-based time tracking. TypeScript,
+            Tailwind CSS, Zustand state management, TypeORM + PostgreSQL data
+            layer with JWT access/refresh authentication. Served as static
+            assets via EC2.
+          </p>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Independent Learning &amp; AI Experimentation
+          </h2>
+          <p
+            style="
+              font-size: 13px;
+              line-height: 1.7;
+              margin: var(--space-2) 0 var(--space-4);
+            "
+          >
+            Active use of AI coding assistants (Claude, GitHub Copilot) — prompt
+            engineering, context management, iterative code review · Spec-driven
+            development workflow (GitHub Spec Kit) across personal projects ·
+            Self-directed study of software architecture and SOLID design
+            principles · Ongoing Data Structures &amp; Algorithms practice (two
+            pointers, sliding window, prefix sums) on LeetCode
+          </p>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Education
+          </h2>
+          <p
+            style="
+              font-size: 14px;
+              line-height: 1.6;
+              margin: var(--space-2) 0 2px;
+              font-weight: 600;
+            "
+          >
+            BBA, Computer Information Systems — West Texas A&amp;M University,
+            December 2024
+          </p>
+          <p
+            style="
+              font-size: 13px;
+              line-height: 1.6;
+              margin: 0 0 4px;
+              color: var(--color-neutral-800);
+            "
+          >
+            Summa Cum Laude · GPA 3.95/4.0. Capstone: TeamOahu Captive Portal —
+            ASP.NET Core MVC + EF Core + Identity, containerized with Docker,
+            unit tested with xUnit/Moq, delivered via Scrum sprints while owning
+            teammate PR reviews.
+          </p>
+          <p
+            style="
+              font-size: 12px;
+              line-height: 1.6;
+              margin: 0 0 var(--space-4);
+              color: var(--color-neutral-600);
+            "
+          >
+            Relevant coursework: OO Analysis &amp; Design · Advanced Business
+            Programming · Back-End Web Dev · Mobile App Development
+            (Kotlin/Jetpack Compose) · Database Design · Software Systems
+            Development · Data Mining Methods (RapidMiner, R)
+          </p>
+
+          <h2
+            style="
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.06em;
+              border-bottom: 1px solid var(--color-divider);
+              padding-bottom: 4px;
+              margin: 0 0 var(--space-2);
+              color: var(--color-neutral-700);
+            "
+          >
+            Healthcare Background
+          </h2>
+          <p
+            style="
+              font-size: 14px;
+              line-height: 1.6;
+              margin: var(--space-2) 0 0;
+            "
+          >
+            ~5 years as a Registered Diagnostic Medical Sonographer. Developed
+            deep expertise in technical precision, real-time clinical
+            decision-making, and communicating complex information to
+            non-technical stakeholders. This background informs a human-centered
+            approach to software: performance matters, clarity matters, and the
+            end user's experience is never an afterthought.
+          </p>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

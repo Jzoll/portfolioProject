@@ -10,20 +10,120 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <style>
+      @page {
+        size: letter;
+        margin: 0.6in;
+      }
       @media print {
-        body * {
-          visibility: hidden;
-        }
-        #print-resume,
-        #print-resume * {
-          visibility: visible;
+        /* Learning note: we used to hide the rest of the page with
+           visibility:hidden and pull #print-resume out with
+           position:absolute. That looked right on screen, but
+           visibility:hidden does NOT remove elements from the page's
+           layout — the nav, hero, projects, footer, etc. still reserved
+           their full height, just invisibly. That invisible content was
+           taller than one printed page, so the browser paginated it onto
+           a second, blank-looking page after the resume.
+           display:none actually removes an element from layout (it
+           collapses to zero height), so hiding everything else this way
+           makes the whole print document exactly as tall as the resume
+           itself — one page. */
+        body > *:not(#print-resume) {
+          display: none !important;
         }
         #print-resume {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
           display: block !important;
+          width: 100%;
+          padding: 0 !important;
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 10.5pt;
+          line-height: 1.3;
+          color: #000 !important;
+          background: white !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+        }
+        #print-resume h1 {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 20pt;
+          font-weight: bold;
+          text-align: center;
+          margin: 0 0 2px !important;
+          padding: 0 !important;
+        }
+        #print-resume .resume-subtitle {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 11pt;
+          font-style: italic;
+          text-align: center;
+          margin: 0 0 2px !important;
+          padding: 0 !important;
+        }
+        #print-resume .resume-contact {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 10pt;
+          text-align: center;
+          margin: 0 0 12px !important;
+          padding: 0 !important;
+        }
+        #print-resume h2 {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 11pt;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-top: 10px !important;
+          margin-bottom: 4px !important;
+          padding-bottom: 3px !important;
+          border-bottom: 1px solid #000 !important;
+          padding: 0 !important;
+        }
+        #print-resume h3 {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 10.5pt;
+          font-weight: bold;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        #print-resume p {
+          font-family: "Times New Roman", Times, serif !important;
+          font-size: 10.5pt;
+          line-height: 1.3 !important;
+          margin: 0 0 2px !important;
+          padding: 0 !important;
+          color: #000 !important;
+        }
+        #print-resume ul {
+          column-count: 2;
+          margin: 0 0 6px !important;
+          padding: 0 !important;
+          list-style: none !important;
+        }
+        #print-resume ul li {
+          margin: 0 0 2px !important;
+          padding: 0 !important;
+          font-size: 10.5pt;
+          break-inside: avoid;
+        }
+        #print-resume ul li::before {
+          content: "– ";
+          margin-right: 0;
+        }
+        #print-resume .resume-entry-title {
+          font-weight: bold;
+          margin-bottom: 0 !important;
+        }
+        #print-resume .resume-entry-meta {
+          font-style: italic;
+          font-size: 10pt;
+          margin-bottom: 2px !important;
+        }
+        #print-resume .resume-entry-desc {
+          font-size: 10pt;
+          margin-bottom: 6px !important;
+        }
+        #print-resume * {
+          background: transparent !important;
+          box-shadow: none !important;
+          border-radius: 0 !important;
         }
       }
       #resume-modal {
@@ -420,11 +520,20 @@
       >
         Jessica Zoll
       </h1>
-      <div style="font-size: 14px; color: #444; margin-bottom: 2px">
-        Software Developer · Healthcare Career Transitioner
+      <!-- resume-subtitle/resume-contact classes are what the @media print
+           rules above target (centered, subtitle italicized) — without the
+           class, only the inline styles apply and print ignores them. -->
+      <div
+        class="resume-subtitle"
+        style="font-size: 14px; color: #444; margin-bottom: 2px"
+      >
+        Software Developer · Healthcare Career Transitioner · Lifelong Builder
       </div>
-      <div style="font-size: 13px; color: #666; margin-bottom: 20px">
-        jzoll.dev@gmail.com · github.com/Jzoll · West Texas A&amp;M University
+      <div
+        class="resume-contact"
+        style="font-size: 13px; color: #666; margin-bottom: 20px"
+      >
+        github.com/Jzoll · jzoll.dev@gmail.com · West Texas A&amp;M University
       </div>
 
       <h2
@@ -641,22 +750,25 @@
             Jessica Zoll
           </h1>
           <div
+            class="resume-subtitle"
             style="
               font-size: 14px;
               color: var(--color-neutral-700);
               margin-bottom: 2px;
             "
           >
-            Software Developer · Healthcare Career Transitioner
+            Software Developer · Healthcare Career Transitioner · Lifelong
+            Builder
           </div>
           <div
+            class="resume-contact"
             style="
               font-size: 13px;
               color: var(--color-neutral-600);
               margin-bottom: var(--space-6);
             "
           >
-            jzoll.dev@gmail.com · github.com/Jzoll · West Texas A&amp;M
+            github.com/Jzoll · jzoll.dev@gmail.com · West Texas A&amp;M
             University
           </div>
 
